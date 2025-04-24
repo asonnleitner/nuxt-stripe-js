@@ -24,25 +24,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
-  nitro: {
-    prerender: {
-      routes: [
-        '/getting-started',
-      ],
-      crawlLinks: true,
-      autoSubfolderIndex: false,
-    },
-    cloudflare: {
-      pages: {
-        routes: {
-          exclude: [
-            '/components/*',
-            '/getting-started/*',
-            '/composables/*',
-          ],
-        },
-      },
-    },
-  },
 })
