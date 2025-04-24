@@ -49,5 +49,5 @@ jobs:
         uses: nuxt-hub/action@v1
         id: deploy
         with:
-          project-key: ui-7eg3
+          project-key: nuxt-stripe-js-r2yo
           directory: docs/dist
