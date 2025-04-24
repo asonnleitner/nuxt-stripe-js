@@ -3,7 +3,7 @@ import { ref, toRaw, unref, watch } from 'vue'
 
 type MaybeRef<T = unknown> = T | Ref<T> | ShallowRef<T> | WritableComputedRef<T>
 
-export function usePrevious<T>(value: MaybeRef<T>) {
+export function usePrevious<T>(value: MaybeRef<T>): Ref<T> {
   let last = clone(unref(value))
   const previous = ref<T>(last)
 
@@ -12,7 +12,7 @@ export function usePrevious<T>(value: MaybeRef<T>) {
     last = clone(current)
   }, { deep: true, flush: 'sync' })
 
-  return previous
+  return previous as Ref<T>
 }
 
 function clone<T>(val: T): T {
