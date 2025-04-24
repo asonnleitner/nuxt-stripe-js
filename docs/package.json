@@ -15,10 +15,14 @@
     "@nuxt/icon": "catalog:",
     "@nuxt/image": "catalog:",
     "@nuxt/ui": "catalog:",
+    "@nuxt/ui-pro": "catalog:",
     "@nuxthub/core": "catalog:",
     "nuxt": "catalog:",
     "typescript": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "wrangler": "catalog:"
   }
 }

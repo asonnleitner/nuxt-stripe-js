@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import pkg from '../package.json'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -10,10 +11,21 @@ export default defineNuxtConfig({
     '../src/module',
     '@nuxt/content',
     '@nuxt/icon',
-    '@nuxt/ui',
+    '@nuxthub/core',
+    '@nuxt/ui-pro',
     '@nuxt/image',
     '@nuxt/fonts',
   ],
+
+  css: [
+    '~/assets/css/main.css',
+  ],
+
+  runtimeConfig: {
+    public: {
+      version: pkg.version,
+    },
+  },
 
   content: {
     build: {

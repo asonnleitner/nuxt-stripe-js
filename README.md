@@ -1,4 +1,4 @@
-[![nuxt-stripe-js-social-card](docs/images/image.png)](https://image.nuxt.com)
+[![nuxt-stripe-js-social-card](docs/app/assets/image.png)](https://image.nuxt.com)
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
