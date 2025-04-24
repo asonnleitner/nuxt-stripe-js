@@ -1,11 +1,11 @@
 {
   "name": "nuxt-stripe-js",
-  "packageManager": "pnpm@9.14.2",
-  "version": "1.0.0",
-  "description": "Vue components for Stripe.js and Stripe Elements",
-  "repository": "https://github.com/asonnleitner/nuxt-stripe-js.git",
-  "license": "MIT",
   "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.14.2",
+  "description": "Vue components for Stripe.js and Stripe Elements",
+  "license": "MIT",
+  "repository": "https://github.com/asonnleitner/nuxt-stripe-js.git",
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
