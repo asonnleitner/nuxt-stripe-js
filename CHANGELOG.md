@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.1.1
+
+[compare changes](https://github.com/asonnleitner/nuxt-stripe-js/compare/v1.1.0...v1.1.1)
+
+### 💅 Refactors
+
+- Update usePrevious function to specify return type as Ref<T> ([5372e92](https://github.com/asonnleitner/nuxt-stripe-js/commit/5372e92))
+
+### ❤️ Contributors
+
+- Asonnleitner ([@asonnleitner](https://github.com/asonnleitner))
+
 ## v1.1.0
 
 
