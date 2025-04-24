@@ -15,6 +15,7 @@
     "@nuxt/icon": "catalog:",
     "@nuxt/image": "catalog:",
     "@nuxt/ui": "catalog:",
+    "@nuxthub/core": "catalog:",
     "nuxt": "catalog:",
     "typescript": "catalog:",
     "vue": "catalog:",
