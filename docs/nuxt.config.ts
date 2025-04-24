@@ -14,4 +14,35 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
   ],
+
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'ts', 'typescript', 'diff', 'vue', 'json', 'yml', 'css', 'mdc'],
+        },
+      },
+    },
+  },
+
+  nitro: {
+    prerender: {
+      routes: [
+        '/getting-started',
+      ],
+      crawlLinks: true,
+      autoSubfolderIndex: false,
+    },
+    cloudflare: {
+      pages: {
+        routes: {
+          exclude: [
+            '/components/*',
+            '/getting-started/*',
+            '/composables/*',
+          ],
+        },
+      },
+    },
+  },
 })
