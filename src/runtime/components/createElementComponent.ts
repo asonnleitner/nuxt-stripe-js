@@ -2,9 +2,9 @@ import type * as stripeJs from '@stripe/stripe-js'
 import type { Ref } from 'vue'
 import type { UnknownOptions } from '../utils/extractAllowedOptionsUpdates'
 import { computed, defineComponent, h, onBeforeUnmount, ref, toRefs, watch, watchEffect } from 'vue'
+import { useElementsOrCheckoutSdkContextWithUseCase } from '../composables/useCheckout'
 import { extractAllowedOptionsUpdates } from '../utils/extractAllowedOptionsUpdates'
 import { usePrevious } from '../utils/usePrevious'
-import { useElementsOrCheckoutSdkContextWithUseCase } from './CheckoutProvider'
 
 const capitalized = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 

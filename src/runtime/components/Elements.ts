@@ -1,8 +1,9 @@
 import type * as stripeJs from '@stripe/stripe-js'
-import type { InjectionKey, PropType, Ref } from 'vue'
+import type { PropType, Ref } from 'vue'
 import type { UnknownOptions } from '../utils/extractAllowedOptionsUpdates'
 import { computed, defineComponent, Fragment, h, onMounted, provide, reactive, ref, toRefs, watch } from 'vue'
 import { extractAllowedOptionsUpdates } from '../utils/extractAllowedOptionsUpdates'
+import { elementsContextKey } from '../utils/keys'
 import { parseStripeProp } from '../utils/parseStripeProp'
 import { usePrevious } from '../utils/usePrevious'
 
@@ -10,8 +11,6 @@ export interface ElementsContextValue {
   elements: stripeJs.StripeElements | null
   stripe: stripeJs.Stripe | null
 }
-
-export const elementsContextKey: InjectionKey<ElementsContextValue> = Symbol('elementsContextKey')
 
 export function parseElementsContext(ctx: ElementsContextValue | null, useCase: string): ElementsContextValue {
   if (!ctx) {
