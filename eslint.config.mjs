@@ -6,4 +6,5 @@ export default defineFlatConfigs(antfu({
   vue: true,
   jsonc: true,
   yaml: true,
+  pnpm: true,
 }))
