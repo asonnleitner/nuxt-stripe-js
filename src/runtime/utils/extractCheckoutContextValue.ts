@@ -1,4 +1,5 @@
 import type * as stripeJs from '@stripe/stripe-js'
+import type { CheckoutContextValue } from './keys'
 
 export function extractCheckoutContextValue(checkoutSdk: stripeJs.StripeCheckout | null, sessionState: stripeJs.StripeCheckoutSession | null): CheckoutContextValue | null {
   if (!checkoutSdk) {
