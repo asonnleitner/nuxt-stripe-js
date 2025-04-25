@@ -57,7 +57,7 @@ function safeSetContext(stripe: stripeJs.Stripe, checkoutSdk: stripeJs.StripeChe
 // Ref used to avoid calling initCheckout multiple times when options changes
 const initCheckoutCalledRef = ref(false)
 
-watch([() => parsed.value, () => context.stripe, options], () => {
+watch([() => parsed.value, () => context.stripe, options, isMounted], () => {
 // For an async stripePromise, store it in context once resolved
   if (parsed.value.tag === 'async' && !context.stripe) {
     parsed.value.stripePromise.then((stripe) => {

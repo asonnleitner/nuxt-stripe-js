@@ -48,7 +48,7 @@ function safeSetContext(stripe: stripeJs.Stripe) {
   context.elements = stripe.elements(options.value)
 }
 
-watch([() => parsed.value, () => context.stripe, options], () => {
+watch([() => parsed.value, () => context.stripe, options, isMounted], () => {
   // For an async stripePromise, store it in context once resolved
   if (parsed.value.tag === 'async' && !context.stripe) {
     parsed.value.stripePromise.then((stripe) => {
