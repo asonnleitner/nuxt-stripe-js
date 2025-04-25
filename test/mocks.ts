@@ -10,7 +10,7 @@ export function mockElement() {
 }
 
 export function mockElements() {
-  const elements = {}
+  const elements: any = {}
   return {
     create: vi.fn((type) => {
       elements[type] = mockElement()
@@ -42,7 +42,7 @@ export function mockCheckoutSession() {
 }
 
 export function mockCheckoutSdk() {
-  const elements = {}
+  const elements: any = {}
 
   return {
     changeAppearance: vi.fn(),

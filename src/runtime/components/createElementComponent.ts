@@ -23,8 +23,8 @@ function createElementComponent(type: stripeJs.StripeElementType) {
     setup: (props, { slots, emit, attrs }) => {
       const { options } = toRefs(props) as { options: Ref<UnknownOptions> }
       const ctx = useElementsOrCheckoutSdkContextWithUseCase(`mounts <${displayName}>`)
-      const elements = computed(() => 'elements' in ctx ? ctx.elements : null)
-      const checkoutSdk = computed(() => 'checkoutSdk' in ctx ? ctx.checkoutSdk : null)
+      const elements = computed(() => 'elements' in ctx.value ? ctx.value.elements : null)
+      const checkoutSdk = computed(() => 'checkoutSdk' in ctx.value ? ctx.value.checkoutSdk : null)
       const element = ref<stripeJs.StripeElement | null>(null)
       const elementRef = ref<stripeJs.StripeElement | null>(null)
       const domNode = ref<HTMLElement | null>(null)

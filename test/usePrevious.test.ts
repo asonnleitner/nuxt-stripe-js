@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { nextTick, ref } from 'vue'
-import { usePrevious } from './usePrevious'
+import { usePrevious } from '../src/runtime/utils/usePrevious'
 
 describe('usePrevious', () => {
   it('returns the initial value if it has not yet been changed', () => {

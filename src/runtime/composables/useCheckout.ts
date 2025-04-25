@@ -1,29 +1,29 @@
-import type { ElementsContextValue } from '../components/Elements'
-import type { CheckoutContextValue, CheckoutSdkContextValue } from '../utils/keys'
+import type { Ref } from 'vue'
+import type { CheckoutContextValue, CheckoutSdkContextValue, ElementsContextValue } from '../utils/keys'
 import { inject } from 'vue'
-import { parseCheckoutSdkContext } from '../components/CheckoutProvider'
-import { parseElementsContext } from '../components/Elements'
 import { checkoutContextKey, checkoutSdkContextKey, elementsContextKey } from '../utils/keys'
+import { parseCheckoutSdkContext } from '../utils/parseCheckoutSdkContext'
+import { parseElementsContext } from '../utils/parseElementsContext'
 
-export function useCheckoutSdkContextWithUseCase(useCaseString: string): CheckoutSdkContextValue {
+export function useCheckoutSdkContextWithUseCase(useCaseString: string): Readonly<Ref<CheckoutSdkContextValue>> {
   const ctx = inject(checkoutSdkContextKey, null)
   return parseCheckoutSdkContext(ctx, useCaseString)
 }
 
-export function useElementsOrCheckoutSdkContextWithUseCase(useCaseString: string): CheckoutSdkContextValue | ElementsContextValue {
+export function useElementsOrCheckoutSdkContextWithUseCase(useCaseString: string): Readonly<Ref<CheckoutSdkContextValue | ElementsContextValue>> {
   const checkoutSdkContext = inject(checkoutSdkContextKey, null)
   const elementsContext = inject(elementsContextKey, null)
 
-  if (checkoutSdkContext && elementsContext)
+  if (checkoutSdkContext?.value && elementsContext?.value)
     throw new Error(`You cannot wrap the part of your app that ${useCaseString} in both <CheckoutProvider> and <Elements> providers.`)
 
-  if (checkoutSdkContext)
+  if (checkoutSdkContext?.value)
     return parseCheckoutSdkContext(checkoutSdkContext, useCaseString)
 
   return parseElementsContext(elementsContext, useCaseString)
 }
 
-export function useCheckout(): CheckoutContextValue {
+export function useCheckout(): Readonly<Ref<CheckoutContextValue | null>> {
   // ensure it's in CheckoutProvider
   useCheckoutSdkContextWithUseCase('calls useCheckout()')
   const ctx = inject(checkoutContextKey, null)

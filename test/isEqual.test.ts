@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isEqual } from './isEqual'
+import { isEqual } from '../src/runtime/utils/isEqual'
 
 describe('isEqual', () => {
   [

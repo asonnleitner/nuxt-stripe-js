@@ -1,5 +1,5 @@
 import type * as stripeJs from '@stripe/stripe-js'
-import type { InjectionKey } from 'vue'
+import type { InjectionKey, Ref } from 'vue'
 
 type StripeCheckoutActions = Omit<Omit<stripeJs.StripeCheckout, 'session'>, 'on'>
 
@@ -10,12 +10,12 @@ export interface ElementsContextValue {
   stripe: stripeJs.Stripe | null
 }
 
-export const elementsContextKey: InjectionKey<ElementsContextValue> = Symbol('elementsContextKey')
+export const elementsContextKey: InjectionKey<Ref<ElementsContextValue>> = Symbol('elementsContextKey')
 
 export interface CheckoutSdkContextValue {
   checkoutSdk: stripeJs.StripeCheckout | null
   stripe: stripeJs.Stripe | null
 }
 
-export const checkoutSdkContextKey: InjectionKey<CheckoutSdkContextValue> = Symbol('checkoutSdkContextKey')
-export const checkoutContextKey: InjectionKey<CheckoutContextValue> = Symbol('checkoutContextKey')
+export const checkoutSdkContextKey: InjectionKey<Ref<CheckoutSdkContextValue>> = Symbol('checkoutSdkContextKey')
+export const checkoutContextKey: InjectionKey<Ref<CheckoutContextValue | null>> = Symbol('checkoutContextKey')

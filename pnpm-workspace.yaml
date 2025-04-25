@@ -19,8 +19,11 @@ catalog:
   '@nuxthub/core': ^0.8.25
   '@stripe/stripe-js': ^7.2.0
   '@types/node': ^22.14.1
+  '@vitejs/plugin-vue': ^5.2.3
+  '@vue/test-utils': ^2.4.6
   changelogen: ^0.6.1
   eslint: ^9.25.1
+  happy-dom: ^17.4.4
   nuxt: ^3.16.2
   typescript: ^5.8.3
   vitest: ^3.1.2

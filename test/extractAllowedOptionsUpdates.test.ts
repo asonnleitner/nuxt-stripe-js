@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { extractAllowedOptionsUpdates } from './extractAllowedOptionsUpdates'
+import { extractAllowedOptionsUpdates } from '../src/runtime/utils/extractAllowedOptionsUpdates'
 
 describe('extractAllowedOptionsUpdates', () => {
   it('drops unchanged keys', () => {

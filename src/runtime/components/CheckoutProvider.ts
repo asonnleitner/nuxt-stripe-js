@@ -1,17 +1,11 @@
 import type * as stripeJs from '@stripe/stripe-js'
 import type { PropType, Ref } from 'vue'
 import type { CheckoutSdkContextValue } from '../utils/keys'
-import { usePrevious } from '#stripe/utils/usePrevious'
 import { computed, defineComponent, Fragment, h, onMounted, provide, reactive, ref, toRefs, watch } from 'vue'
 import { isEqual } from '../utils/isEqual'
 import { checkoutContextKey, checkoutSdkContextKey } from '../utils/keys'
 import { parseStripeProp } from '../utils/parseStripeProp'
-
-export function parseCheckoutSdkContext(ctx: CheckoutSdkContextValue | null, useCase: string): CheckoutSdkContextValue {
-  if (!ctx)
-    throw new Error(`Could not find CheckoutProvider context; You need to wrap the part of your app that ${useCase} in an <CheckoutProvider> provider.`)
-  return ctx
-}
+import { usePrevious } from '../utils/usePrevious'
 
 type StripeCheckoutActions = Omit<Omit<stripeJs.StripeCheckout, 'session'>, 'on'>
 
@@ -141,8 +135,13 @@ const CheckoutProvider = defineComponent({
 
     const checkoutContextValue = computed(() => extractCheckoutContextValue(context.checkoutSdk, session.value))
 
-    provide(checkoutSdkContextKey, context)
-    provide(checkoutContextKey, checkoutContextValue.value!)
+    const computedContext = computed(() => ({
+      stripe: context.stripe,
+      checkoutSdk: context.checkoutSdk,
+    }))
+
+    provide(checkoutSdkContextKey, computedContext)
+    provide(checkoutContextKey, checkoutContextValue)
 
     return () => h(Fragment, ctx.slots.default?.(context))
   },
