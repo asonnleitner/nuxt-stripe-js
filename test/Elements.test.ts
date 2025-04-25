@@ -184,13 +184,13 @@ describe('elements', () => {
       },
     })
 
-    const testComponentVM = wrapper.findComponent(TestComponent).vm
+    const testComponent = wrapper.findComponent(TestComponent)
 
-    expect(testComponentVM.elements).toBe(null)
+    expect(testComponent.vm.elements).toBe(null)
 
     await wrapper.vm.$nextTick()
 
-    expect(testComponentVM.elements).toStrictEqual(mockElements)
+    expect(testComponent.vm.elements).toStrictEqual(mockElements)
   })
 
   it('allows a transition from null to a valid Promise', async () => {
@@ -214,9 +214,7 @@ describe('elements', () => {
     const testComponent = wrapper.findComponent(TestComponent)
     expect(testComponent.vm.elements).toBe(null)
 
-    await wrapper.setProps({
-      stripe: mockStripePromise,
-    })
+    await wrapper.setProps({ stripe: mockStripePromise })
     await wrapper.vm.$nextTick()
 
     expect(testComponent.vm.elements).toStrictEqual(mockElements)
