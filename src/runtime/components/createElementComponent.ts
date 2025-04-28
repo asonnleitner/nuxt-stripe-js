@@ -30,20 +30,20 @@ function createElementComponent(type: stripeJs.StripeElementType) {
       const domNode = ref<HTMLElement | null>(null)
 
       watch(element, (element) => {
-        element?.on('blur', event => emit('blur', event))
-        element?.on('focus', event => emit('focus', event))
-        element?.on('escape', event => emit('escape', event))
-        element?.on('click', event => emit('click', event))
-        element?.on('loaderror', event => emit('loaderror', event))
-        element?.on('loaderstart', event => emit('loaderstart', event))
-        element?.on('networkschange', event => emit('networkschange', event))
-        element?.on('confirm', event => emit('confirm', event))
-        element?.on('cancel', event => emit('cancel', event))
-        element?.on('shippingaddresschange', event => emit('shippingaddresschange', event))
-        element?.on('shippingratechange', event => emit('shippingratechange', event))
-        element?.on('change', event => emit('change', event))
+        attrs.onBlur && element?.on('blur', event => emit('blur', event))
+        attrs.onFocus && element?.on('focus', event => emit('focus', event))
+        attrs.onEscape && element?.on('escape', event => emit('escape', event))
+        attrs.onClick && element?.on('click', event => emit('click', event))
+        attrs.onLoaderror && element?.on('loaderror', event => emit('loaderror', event))
+        attrs.onLoaderstart && element?.on('loaderstart', event => emit('loaderstart', event))
+        attrs.onNetworkschange && element?.on('networkschange', event => emit('networkschange', event))
+        attrs.onConfirm && element?.on('confirm', event => emit('confirm', event))
+        attrs.onCancel && element?.on('cancel', event => emit('cancel', event))
+        attrs.onShippingaddresschange && element?.on('shippingaddresschange', event => emit('shippingaddresschange', event))
+        attrs.onShippingratechange && element?.on('shippingratechange', event => emit('shippingratechange', event))
+        attrs.onChange && element?.on('change', event => emit('change', event))
         // Passes through the event, which includes visible PM types. For other Elements, pass through the Element itself.
-        element?.on('ready', event => emit('ready', type === 'expressCheckout' ? event : element))
+        attrs.onReady && element?.on('ready', event => emit('ready', type === 'expressCheckout' ? event : element))
       }, { immediate: true })
 
       watchEffect(() => {
